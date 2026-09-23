@@ -1,9 +1,9 @@
-name: Gold Signal Bot
+name: RSI MACD Signal Bot
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   run-bot:
@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install packages
-        run: pip install requests pandas
+      - name: Install requests
+        run: pip install requests
 
-      - name: Run bot
-        run: timeout 250 python bot.py || true
+      - name: Run signal bot
+        run: timeout 250 python 2bot.py || true
